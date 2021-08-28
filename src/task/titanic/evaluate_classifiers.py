@@ -21,8 +21,6 @@ from sklearn.naive_bayes import GaussianNB
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 sys.path.append("{}/src".format(PROJECT_DIR))
 
-from util.visualization_util import plot_2d_decision_regions
-
 
 def main():
     # step1: 数据集获取
