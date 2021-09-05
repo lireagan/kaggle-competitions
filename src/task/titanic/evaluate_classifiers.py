@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-__author__ = "reagan.llx"
+__author__ = 'reagan.llx'
 
 import os
 import numpy as np
@@ -20,13 +20,13 @@ from sklearn.naive_bayes import GaussianNB
 from util.visualization_util import plot_2d_decision_regions
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-sys.path.append("{}/src".format(PROJECT_DIR))
+sys.path.append('{}/src'.format(PROJECT_DIR))
 
 # 数据集获取
-labeled_data = pd.read_csv("{}/data/titanic/train.csv".format(PROJECT_DIR))
-features = ["Pclass", "Sex", "SibSp", "Parch"]
+labeled_data = pd.read_csv('{}/data/titanic/train.csv'.format(PROJECT_DIR))
+features = ['Pclass', 'Sex', 'SibSp', 'Parch']
 X = pd.get_dummies(labeled_data[features])  # get_dummies是进行one-hot处理
-y = labeled_data["Survived"]
+y = labeled_data['Survived']
 # 数据集切分
 X_train, X_eval, y_train, y_eval = train_test_split(
     X, y, test_size=0.2, random_state=0)  # train_test_split方法分割数据集
@@ -37,13 +37,13 @@ X_train_std = sc.transform(X_train)
 X_eval_std = sc.transform(X_eval)
 # 通过sklearn构造分类器
 classifiers = {
-    "KNN": KNeighborsClassifier(3),
-    "Linear SVM": SVC(kernel="linear", C=0.025),
-    "RBF SVM": SVC(gamma=2, C=1),
-    "Decision Tree": DecisionTreeClassifier(max_depth=5),
-    "RF": RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
-    "AdaBoost": AdaBoostClassifier(),
-    "Naive Bayes": GaussianNB(),
+    'NN': KNeighborsClassifier(3),
+    'Linear SVM': SVC(kernel='linear', C=0.025),
+    'RBF SVM': SVC(gamma=2, C=1),
+    'Decision Tree': DecisionTreeClassifier(max_depth=5),
+    'RF': RandomForestClassifier(max_depth=5, n_estimators=10, max_features=1),
+    'AdaBoost': AdaBoostClassifier(),
+    'Naive Bayes': GaussianNB(),
 }
 
 
